@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cloud File Manager</title>
+  <!-- Firebase SDKs (v8 compat to match lab structure) -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+
+  
+  <script>
+    // Paste your Firebase Config object here
+    var firebaseConfig = {
+      apiKey: "AIzaSyBuiL28_hGLXsimGdDuqOoVV-CzqRn0858",
+      authDomain: "baaslab.firebaseapp.com",
+      projectId: "baaslab",
+      storageBucket: "baaslab.firebasestorage.app",
+      messagingSenderId: "808257378749",
+      appId: "1:808257378749:web:8c7715702e999cd83c9ad4"
+    };
+    firebase.initializeApp(firebaseConfig);
+  </script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <h1>Cloud File Manager (MVP)</h1>
+  
+  <!-- Authentication UI -->
+  <section id="whenSignedOut">
+    <input type="email" id="email" placeholder="Email">
+    <input type="password" id="password" placeholder="Password">
+    <button id="loginBtn">Login / Register</button>
+  </section>
+  
+  <!-- Dashboard UI (Hidden by default) -->
+  <section id="whenSignedIn" hidden="true">
+    <button id="signOutBtn">Sign Out</button>
+    <hr>
+    
+    <h3>Upload a File</h3>
+    <input type="file" id="fileInput">
+    <button id="uploadBtn">Upload</button>
+    
+    <!-- Real-time Progress Bar -->
+    <progress id="progressBar" value="0" max="100" style="width: 100%; display: none;"></progress>
+    <p id="statusText"></p>
+    <hr>
+    
+    <h3>My Files</h3>
+    <ul id="fileList"></ul>
+  </section>
+</body>
+</html>
